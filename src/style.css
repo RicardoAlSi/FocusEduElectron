@@ -1,0 +1,12 @@
+/* style.css — estilos da tela do FocusEdu */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+/* TODO: estilos do formulário e da listagem */
