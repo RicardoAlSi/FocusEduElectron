@@ -17,7 +17,6 @@
       <a href="#">Atividade</a>
     </div>
 
-    <!-- Listagem dos registros -->
     <section id="secao-lista">
       <div class="navbar" id="navbar">
         <h2>Atividades e Projetos Escolares</h2>
@@ -27,9 +26,30 @@
           <li id="btn-excluir">Excluir</li>
           <li id="btn-adicionar">+ Nova Atividade</li>
         </ul>
-    </div>
-      <ul id="lista">
-      </ul>
+      </div>
+
+      <form id="formulario" class="formulario" hidden>
+        <h3 id="titulo-formulario">Nova Atividade</h3>
+        <label>Título
+          <input type="text" id="campo-titulo" required>
+        </label>
+        <label>Disciplina
+          <input type="text" id="campo-disciplina" required>
+        </label>
+        <label>Prazo
+          <input type="date" id="campo-prazo" required>
+        </label>
+        <label>Descrição
+          <textarea id="campo-descricao" rows="3"></textarea>
+        </label>
+        <div class="acoes-formulario">
+          <button type="submit">Salvar</button>
+          <button type="button" id="btn-cancelar">Cancelar</button>
+        </div>
+        
+      </form>
+
+      <ul id="lista"></ul>
     </section>
   </main>
 

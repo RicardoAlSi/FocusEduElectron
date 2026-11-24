@@ -4,6 +4,8 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('api', {
-  // TODO: expor as funções usando ipcRenderer.invoke
-  // Ex.: carregar: () => ipcRenderer.invoke('entidade:carregar'),
+  carregar: () => ipcRenderer.invoke('atividade:carregar'),
+  salvar: (registros) => ipcRenderer.invoke('atividade:salvar', registros),
+  confirmarExclusao: (titulo) => ipcRenderer.invoke('atividade:confirmarExclusao', titulo),
+  aoNovaAtividade: (callback) => ipcRenderer.on('menu:novaAtividade', () => callback()),
 });

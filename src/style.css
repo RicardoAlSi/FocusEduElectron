@@ -58,4 +58,69 @@ body {
   border-radius: 8px;
 }
 
-/* TODO: estilos do formulário e da listagem */
+.navbar ul li {
+  cursor: pointer;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: 16px auto;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.formulario[hidden] {
+  display: none;
+}
+
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formulario input {
+  padding: 6px;
+}
+
+.acoes-formulario {
+  display: flex;
+  gap: 8px;
+}
+
+#lista {
+  list-style: none;
+  max-width: 700px;
+  margin: 16px auto;
+}
+
+#lista .item {
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#lista .item.selecionado {
+  background-color: #d8fff0;
+  border-color: aquamarine;
+}
+
+#lista .item.concluida {
+  text-decoration: line-through;
+  color: #777;
+}
+
+#lista .vazio {
+  text-align: center;
+  color: #777;
+}
+
+#lista .item {
+  white-space: pre-line;
+}

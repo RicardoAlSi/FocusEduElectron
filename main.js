@@ -23,8 +23,26 @@ function criarJanela() {
 }
 
 function criarMenu() {
-  // TODO: montar o menu nativo com pelo menos um atalho de teclado
-  // que execute uma ação do sistema (ex.: Ctrl+N para novo cadastro).
+  const modelo = [
+    {
+      label: 'Arquivo',
+      submenu: [
+        {
+          label: 'Nova Atividade',
+          accelerator: 'CmdOrCtrl+N',
+          click: () => janela.webContents.send('menu:novaAtividade'),
+        },
+        { type: 'separator' },
+        { label: 'Sair', role: 'quit' },
+      ],
+    },
+    { label: 'Editar', role: 'editMenu' },
+    {
+      label: 'Exibir',
+      submenu: [{ role: 'reload' }, { role: 'toggleDevTools' }],
+    },
+  ];
+  Menu.setApplicationMenu(Menu.buildFromTemplate(modelo));
 }
 
 app.whenReady().then(() => {
@@ -38,9 +56,18 @@ app.on('window-all-closed', () => {
   }
 });
 
-// ---------------------------------------------------------------
-// Handlers de IPC (ipcMain.handle) — canais com prefixo do assunto
-// Ex.: 'entidade:carregar', 'entidade:salvar', 'entidade:confirmarExclusao'
-// TODO: registrar os handlers e delegar ao repositorio.js
-// TODO: usar dialog.showMessageBox para confirmar exclusões
-// ---------------------------------------------------------------
+ipcMain.handle('atividade:carregar', () => repositorio.carregar());
+
+ipcMain.handle('atividade:salvar', (evento, registros) => repositorio.salvar(registros));
+
+ipcMain.handle('atividade:confirmarExclusao', async (evento, titulo) => {
+  const { response } = await dialog.showMessageBox(janela, {
+    type: 'warning',
+    buttons: ['Cancelar', 'Excluir'],
+    defaultId: 0,
+    cancelId: 0,
+    title: 'Confirmar exclusão',
+    message: `Deseja excluir a atividade "${titulo}"?`,
+  });
+  return response === 1;
+});
