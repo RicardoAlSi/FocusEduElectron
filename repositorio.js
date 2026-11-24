@@ -13,12 +13,20 @@ function caminhoDoArquivo() {
 }
 
 async function carregar() {
-  // TODO: ler o arquivo e retornar os registros.
-  // Na primeira execução (arquivo inexistente, erro ENOENT) retornar [].
+    try {
+        const texto = await fs.readFile(caminhoDoArquivo(), 'utf-8');
+        return JSON.parse(texto);
+    } catch (erro) {
+        if (erro.code === 'ENOENT') {
+            return [];
+        }
+        throw erro;
+    }
 }
 
 async function salvar(registros) {
-  // TODO: gravar os registros no arquivo JSON.
+    const texto = JSON.stringify(registros, null, 2);
+    await fs.writeFile(caminhoDoArquivo(), texto, 'utf-8');
 }
 
 module.exports = {
