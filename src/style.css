@@ -2,11 +2,60 @@
 
 * {
   box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
+}
+
+.header{
+  margin: 16px 0px 16px 0px;
+  padding-inline: 16px;
+}
+
+.main{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr;
+}
+
+.menu-lateral{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-inline: 16px;
+}
+
+.menu-lateral a{
+  display: flex;
+  padding-inline: 16px;
+}
+
+.navbar{
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar h2{
+  font-size: 18px;
+  margin: 0px;
+}
+
+.navbar > ul{
+  display: flex;
+  list-style: none;
+  gap: 8px;
+}
+
+.navbar ul li{
+  padding: 8px;
+  background-color: aquamarine;
+  border-radius: 8px;
 }
 
 /* TODO: estilos do formulário e da listagem */

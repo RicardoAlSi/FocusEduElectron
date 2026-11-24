@@ -7,21 +7,29 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <header class="header" id="header">
     <h1>FocusEdu</h1>
   </header>
 
-  <main>
+  <main class="main" id="main">
     <!-- Formulário: serve para cadastrar e editar -->
-    <section id="secao-formulario">
-      <form id="formulario">
-        <!-- TODO: campos da entidade definida na N1 -->
-      </form>
-    </section>
+    <div class="menu-lateral" id="menu-lateral">
+      <a href="#">Atividade</a>
+    </div>
 
     <!-- Listagem dos registros -->
     <section id="secao-lista">
-      <ul id="lista"></ul>
+      <div class="navbar" id="navbar">
+        <h2>Atividades e Projetos Escolares</h2>
+        <ul>
+          <li id="btn-concluir">Concluir/Reabrir</li>
+          <li id="btn-editar">Editar</li>
+          <li id="btn-excluir">Excluir</li>
+          <li id="btn-adicionar">+ Nova Atividade</li>
+        </ul>
+    </div>
+      <ul id="lista">
+      </ul>
     </section>
   </main>
 
