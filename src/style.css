@@ -1,5 +1,3 @@
-/* style.css — estilo único da tela do FocusEdu */
-
 :root {
   font-family: "Segoe UI", system-ui, sans-serif;
   font-size: 14px;
@@ -22,7 +20,6 @@ body {
   overflow: hidden;
 }
 
-/* ---------- Cabeçalho ---------- */
 .header {
   height: 60px;
   min-height: 60px;
@@ -50,7 +47,6 @@ body {
   font-size: 14px;
 }
 
-/* ---------- Menu lateral e conteúdo ---------- */
 .main {
   flex: 1;
   min-height: 0;
@@ -85,7 +81,6 @@ body {
   background: #F4F5FA;
 }
 
-/* ---------- Barra de ações ---------- */
 .navbar {
   display: flex;
   align-items: center;
@@ -115,7 +110,6 @@ button,
   font-size: 14px;
 }
 
-/* Visual cinza com gradiente, no espírito do tema padrão do Modena. */
 .btn-padrao {
   padding: 10px 18px;
   border: 1px solid #B8B8B8;
@@ -154,7 +148,6 @@ button,
 
 .btn-nova:hover { background: #2F2670; }
 
-/* ---------- Cards ---------- */
 #lista {
   flex: 1;
   min-height: 0;
@@ -208,7 +201,6 @@ button,
   font-weight: 700;
 }
 
-/* Cores por disciplina, conforme o padrão de chips. */
 .disciplina-matematica { background: #EDE9FE; color: #3B3086; }
 .disciplina-portuguesa { background: #FCE4EC; color: #8A1538; }
 .disciplina-historia { background: #FDEBD3; color: #6B3F00; }
@@ -242,7 +234,6 @@ button,
   color: #6B7280;
 }
 
-/* ---------- Formulário (mesmo comportamento, apenas estilizado) ---------- */
 .formulario {
   width: min(560px, 100%);
   padding: 20px;
