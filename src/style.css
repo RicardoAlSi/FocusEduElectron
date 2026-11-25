@@ -1,126 +1,316 @@
-/* style.css — estilos da tela do FocusEdu */
+/* style.css — estilo único da tela do FocusEdu */
+
+:root {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 14px;
+  color: #1F2937;
+}
 
 * {
   box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
-}
-
-.header{
-  margin: 16px 0px 16px 0px;
-  padding-inline: 16px;
-}
-
-.main{
-  display: grid;
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: 1fr;
-}
-
-.menu-lateral{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-inline: 16px;
+  background: #F4F5FA;
+  overflow: hidden;
 }
 
-.menu-lateral a{
+/* ---------- Cabeçalho ---------- */
+.header {
+  height: 60px;
+  min-height: 60px;
+  padding: 0 24px;
   display: flex;
-  padding-inline: 16px;
-}
-
-.navbar{
-  display: flex;
-  gap: 16px;
-  justify-content: center;
   align-items: center;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E3E5EC;
 }
 
-.navbar h2{
-  font-size: 18px;
-  margin: 0px;
-}
-
-.navbar > ul{
+.logo {
   display: flex;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.logo-focus { color: #2F2A80; }
+.logo-edu { color: #1B4F8F; }
+
+.usuario {
+  margin-left: auto;
+  color: #6B7280;
+  font-size: 14px;
+}
+
+/* ---------- Menu lateral e conteúdo ---------- */
+.main {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 210px 1fr;
+}
+
+.menu-lateral {
+  padding: 16px;
+  background: #F7F7FB;
+  border-right: 1px solid #E3E5EC;
+}
+
+.menu-item {
+  display: block;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: #ECEAFB;
+  color: #3B3086;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#secao-lista {
+  min-width: 0;
+  min-height: 0;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #F4F5FA;
+}
+
+/* ---------- Barra de ações ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar h2 {
+  margin: 0;
+  white-space: nowrap;
+  color: #1F2937;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.navbar > ul {
+  margin: 0 0 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   list-style: none;
-  gap: 8px;
 }
 
-.navbar ul li{
-  padding: 8px;
-  background-color: aquamarine;
-  border-radius: 8px;
+button,
+.navbar > ul > li {
+  font-family: inherit;
+  font-size: 14px;
 }
 
-.navbar ul li {
+/* Visual cinza com gradiente, no espírito do tema padrão do Modena. */
+.btn-padrao {
+  padding: 10px 18px;
+  border: 1px solid #B8B8B8;
+  border-radius: 4px;
+  background: linear-gradient(#FFFFFF, #EDEDED);
+  color: #1F1F1F;
+  font-weight: 700;
   cursor: pointer;
 }
 
-.formulario {
+.btn-padrao:hover {
+  background: linear-gradient(#F7F7F7, #E2E2E2);
+}
+
+.btn-excluir,
+.btn-nova {
+  padding: 10px 18px;
+  border: 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-excluir {
+  border-radius: 10px;
+  background: #FEE2E2;
+  color: #B91C1C;
+}
+
+.btn-excluir:hover { background: #FECACA; }
+
+.btn-nova {
+  border-radius: 10px;
+  background: #3B3086;
+  color: #FFFFFF;
+}
+
+.btn-nova:hover { background: #2F2670; }
+
+/* ---------- Cards ---------- */
+#lista {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 2px;
   display: flex;
   flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  list-style: none;
+  background: transparent;
+}
+
+#lista .item {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(31, 41, 55, 0.05);
+  cursor: pointer;
+}
+
+#lista .item.selecionado {
+  border-color: #D9D8EA;
+  background: #F9F9FD;
+}
+
+.linha-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chip-status {
+  margin-left: auto;
+  padding: 4px 12px;
+  border-radius: 10px;
+  background: #EDEBFB;
+  color: #3B3086;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.chip-disciplina {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Cores por disciplina, conforme o padrão de chips. */
+.disciplina-matematica { background: #EDE9FE; color: #3B3086; }
+.disciplina-portuguesa { background: #FCE4EC; color: #8A1538; }
+.disciplina-historia { background: #FDEBD3; color: #6B3F00; }
+.disciplina-ciencias { background: #DCFCE7; color: #166534; }
+.disciplina-ingles { background: #DBEAFE; color: #1E40AF; }
+.disciplina-outra { background: #E5E7EB; color: #374151; }
+
+.card-titulo {
+  color: #1F2937;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.card-descricao,
+.card-prazo {
+  color: #6B7280;
+  font-size: 14px;
+}
+
+.card-descricao {
+  white-space: pre-line;
+}
+
+.prazo-hoje {
+  font-weight: 700;
+}
+
+#lista .vazio {
+  padding: 32px;
+  text-align: center;
+  color: #6B7280;
+}
+
+/* ---------- Formulário (mesmo comportamento, apenas estilizado) ---------- */
+.formulario {
+  width: min(560px, 100%);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
   gap: 12px;
-  max-width: 400px;
-  margin: 16px auto;
-  padding: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 14px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(31, 41, 55, 0.05);
 }
 
 .formulario[hidden] {
   display: none;
 }
 
-.formulario label {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.formulario h3 {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #1F2937;
+  font-size: 18px;
+  font-weight: 700;
 }
 
-.formulario input {
-  padding: 6px;
+.formulario label {
+  display: contents;
+}
+
+.formulario label > input,
+.formulario label > textarea {
+  grid-column: 2;
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #C9C9CF;
+  border-radius: 6px;
+  background: #FFFFFF;
+  color: #1F2937;
+  font: inherit;
+}
+
+.formulario label > textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.formulario label > input:focus,
+.formulario label > textarea:focus {
+  outline: 2px solid #EDEBFB;
+  border-color: #3B3086;
 }
 
 .acoes-formulario {
+  grid-column: 1 / -1;
   display: flex;
-  gap: 8px;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
-#lista {
-  list-style: none;
-  max-width: 700px;
-  margin: 16px auto;
-}
-
-#lista .item {
-  padding: 10px;
-  margin-bottom: 8px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+.acoes-formulario button {
+  padding: 8px 18px;
+  border: 1px solid #B8B8B8;
+  border-radius: 4px;
+  background: linear-gradient(#FFFFFF, #EDEDED);
+  color: #1F1F1F;
+  font-weight: 700;
   cursor: pointer;
 }
 
-#lista .item.selecionado {
-  background-color: #d8fff0;
-  border-color: aquamarine;
-}
-
-#lista .item.concluida {
-  text-decoration: line-through;
-  color: #777;
-}
-
-#lista .vazio {
-  text-align: center;
-  color: #777;
-}
-
-#lista .item {
-  white-space: pre-line;
+.acoes-formulario button:hover {
+  background: linear-gradient(#F7F7F7, #E2E2E2);
 }

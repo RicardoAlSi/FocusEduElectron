@@ -8,23 +8,23 @@
 </head>
 <body>
   <header class="header" id="header">
-    <h1>FocusEdu</h1>
+    <h1 class="logo"><span class="logo-focus">Focus</span><span class="logo-edu">Edu</span></h1>
+    <span class="usuario">@user</span>
   </header>
 
   <main class="main" id="main">
-    <!-- Formulário: serve para cadastrar e editar -->
     <div class="menu-lateral" id="menu-lateral">
-      <a href="#">Atividade</a>
+      <a href="#" class="menu-item selected">Atividade</a>
     </div>
 
     <section id="secao-lista">
       <div class="navbar" id="navbar">
         <h2>Atividades e Projetos Escolares</h2>
         <ul>
-          <li id="btn-concluir">Concluir/Reabrir</li>
-          <li id="btn-editar">Editar</li>
-          <li id="btn-excluir">Excluir</li>
-          <li id="btn-adicionar">+ Nova Atividade</li>
+          <li id="btn-concluir" class="btn-padrao">Concluir/Reabrir</li>
+          <li id="btn-editar" class="btn-padrao">Editar</li>
+          <li id="btn-excluir" class="btn-excluir">Excluir</li>
+          <li id="btn-adicionar" class="btn-nova">+ Nova Atividade</li>
         </ul>
       </div>
 
@@ -46,7 +46,6 @@
           <button type="submit">Salvar</button>
           <button type="button" id="btn-cancelar">Cancelar</button>
         </div>
-        
       </form>
 
       <ul id="lista"></ul>
