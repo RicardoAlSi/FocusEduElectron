@@ -234,20 +234,26 @@ button,
   color: #6B7280;
 }
 
+.modal {
+  width: min(560px, calc(100% - 32px));
+  padding: 0;
+  border: none;
+  border-radius: 14px;
+  background: #FFFFFF;
+  box-shadow: 0 12px 32px rgba(31, 41, 55, 0.25);
+}
+
+.modal::backdrop {
+  background: rgba(31, 41, 55, 0.45);
+}
+
 .formulario {
-  width: min(560px, 100%);
-  padding: 20px;
+  width: 100%;
+  padding: 24px;
   display: grid;
   grid-template-columns: 90px 1fr;
   align-items: center;
   gap: 12px;
-  border-radius: 14px;
-  background: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(31, 41, 55, 0.05);
-}
-
-.formulario[hidden] {
-  display: none;
 }
 
 .formulario h3 {

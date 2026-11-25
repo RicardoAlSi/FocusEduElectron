@@ -3,6 +3,7 @@ let selecionadoId = null;
 let editandoId = null;
 
 const lista = document.getElementById('lista');
+const modalFormulario = document.getElementById('modal-formulario');
 const formulario = document.getElementById('formulario');
 const tituloFormulario = document.getElementById('titulo-formulario');
 const campoTitulo = document.getElementById('campo-titulo');
@@ -97,15 +98,19 @@ function abrirFormulario(registro) {
   campoDisciplina.value = registro ? registro.disciplina : '';
   campoPrazo.value = registro ? registro.prazo : '';
   campoDescricao.value = registro ? (registro.descricao || '') : '';
-  formulario.hidden = false;
+  if (!modalFormulario.open) modalFormulario.showModal();
   campoTitulo.focus();
 }
 
 function fecharFormulario() {
-  formulario.hidden = true;
+  modalFormulario.close();
+}
+
+// Dispara ao fechar por qualquer meio (Salvar, Cancelar ou tecla Esc).
+modalFormulario.addEventListener('close', () => {
   editandoId = null;
   formulario.reset();
-}
+});
 
 function obterSelecionado() {
   const registro = registros.find((r) => r.id === selecionadoId);
