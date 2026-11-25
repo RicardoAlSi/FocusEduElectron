@@ -260,6 +260,7 @@ button,
 }
 
 #lista .item {
+  flex-shrink: 0; /* mantém a altura do cartão; o excesso vira rolagem */
   position: relative;
   padding: 18px 22px 18px 26px;
   display: flex;
@@ -415,6 +416,7 @@ button,
 }
 
 #lista .vazio {
+  flex-shrink: 0;
   margin-top: 8px;
   padding: 48px 32px;
   border: 2px dashed var(--borda-forte);
