@@ -152,7 +152,7 @@ button,
   flex: 1;
   min-height: 0;
   margin: 0;
-  padding: 2px;
+  padding: 6px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -167,15 +167,46 @@ button,
   flex-direction: column;
   gap: 8px;
   border: 1px solid #E5E7EB;
+  border-left: 6px solid #F59E0B;
   border-radius: 16px;
   background: #FFFFFF;
   box-shadow: 0 2px 8px rgba(31, 41, 55, 0.05);
   cursor: pointer;
+  transition: box-shadow 0.15s, background-color 0.15s, border-color 0.15s;
 }
 
+#lista .item:hover {
+  box-shadow: 0 4px 14px rgba(31, 41, 55, 0.10);
+}
+
+/* Concluída: faixa verde, fundo esverdeado e texto esmaecido/riscado */
+#lista .item.concluida {
+  border-left-color: #16A34A;
+  background: #F6FBF7;
+}
+
+#lista .item.concluida .card-titulo {
+  color: #6B7280;
+  text-decoration: line-through;
+  text-decoration-color: #9CA3AF;
+}
+
+#lista .item.concluida .card-descricao,
+#lista .item.concluida .card-prazo {
+  color: #9CA3AF;
+}
+
+#lista .item.concluida .prazo-hoje {
+  font-weight: 400;
+}
+
+/* Selecionada: contorno roxo forte + fundo lilás (vale para aberta ou concluída) */
 #lista .item.selecionado {
-  border-color: #D9D8EA;
-  background: #F9F9FD;
+  border-top-color: #3B3086;
+  border-right-color: #3B3086;
+  border-bottom-color: #3B3086;
+  background: #F3F1FD;
+  box-shadow: 0 0 0 3px rgba(59, 48, 134, 0.35), 0 6px 18px rgba(59, 48, 134, 0.18);
 }
 
 .linha-chips {
@@ -187,11 +218,35 @@ button,
 .chip-status {
   margin-left: auto;
   padding: 4px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   border-radius: 10px;
-  background: #EDEBFB;
-  color: #3B3086;
   font-size: 12px;
   font-weight: 700;
+}
+
+.chip-pendente {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.chip-pendente::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #F59E0B;
+}
+
+.chip-concluida {
+  background: #DCFCE7;
+  color: #166534;
+}
+
+.chip-concluida::before {
+  content: "\2713";
+  font-size: 12px;
 }
 
 .chip-disciplina {

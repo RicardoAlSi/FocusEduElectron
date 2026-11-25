@@ -62,7 +62,7 @@ function renderizar() {
     chipDisciplina.textContent = r.disciplina || 'Outra';
 
     const chipStatus = document.createElement('span');
-    chipStatus.className = 'chip-status';
+    chipStatus.className = `chip-status ${r.concluida ? 'chip-concluida' : 'chip-pendente'}`;
     chipStatus.textContent = r.concluida ? 'Concluída' : 'Pendente';
 
     linhaChips.append(chipDisciplina, chipStatus);
